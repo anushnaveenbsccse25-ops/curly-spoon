@@ -1,0 +1,186 @@
+# =========================================================
+# MERGE CONFLICT DEMO USING VS CODE / WINDOWS
+# =========================================================
+
+# Step 1: Create folder
+mkdir merge-demo
+
+# Step 2: Enter folder
+cd merge-demo
+
+# Step 3: Initialize Git repository
+git init
+
+# Open folder in VS Code
+code .
+
+# =========================================================
+# CREATE INITIAL FILE AND COMMIT
+# =========================================================
+
+# Step 4: Create file
+echo Once upon a time, there was a coder. > story.txt
+
+# Step 5: Add file to staging area
+git add story.txt
+
+# Step 6: Commit file
+git commit -m "Initial commit"
+
+# =========================================================
+# CREATE BRANCH A AND MODIFY FILE
+# =========================================================
+
+# Step 7: Create and switch to feature-A branch
+git checkout -b feature-A
+
+# Step 8: Modify file
+echo Once upon a time, there was a coder. They loved working with Git. > story.txt
+
+# Step 9: Stage file
+git add story.txt
+
+# Step 10: Commit changes
+git commit -m "Feature A change"
+
+# =========================================================
+# RETURN TO MAIN/MASTER BRANCH
+# =========================================================
+
+# Step 11: Switch back to master branch
+git checkout master
+
+# If your branch name is main:
+# git checkout main
+
+# =========================================================
+# CREATE BRANCH B AND MODIFY SAME LINE DIFFERENTLY
+# =========================================================
+
+# Step 12: Create and switch to feature-B branch
+git checkout -b feature-B
+
+# Step 13: Modify same line differently
+echo Once upon a time, there was a coder. They enjoyed solving puzzles. > story.txt
+
+# Step 14: Stage file
+git add story.txt
+
+# Step 15: Commit changes
+git commit -m "Feature B change"
+
+# =========================================================
+# CREATE MERGE CONFLICT
+# =========================================================
+
+# Step 16: Return to master/main branch
+git checkout master
+
+# If branch is main:
+# git checkout main
+
+# Step 17: Merge feature-A
+git merge feature-A
+
+# Step 18: Merge feature-B
+git merge feature-B
+
+# Git will show:
+# CONFLICT (content): Merge conflict in story.txt
+
+# =========================================================
+# RESOLVE MERGE CONFLICT
+# =========================================================
+
+# Step 19: Open file in VS Code
+code story.txt
+
+# OR use:
+# notepad story.txt
+
+# Inside file you will see:
+
+# <<<<<<< HEAD
+# Once upon a time, there was a coder. They loved working with Git.
+# =======
+# Once upon a time, there was a coder. They enjoyed solving puzzles.
+# >>>>>>> feature-B
+
+# Step 20:
+# Remove conflict markers:
+# <<<<<<< HEAD
+# =======
+# >>>>>>> feature-B
+
+# Replace entire content with final version.
+# Example:
+
+# Once upon a time, there was a coder.
+# They loved Git and solving puzzles.
+
+# Step 21:
+# Save file and close VS Code/Notepad
+
+# =========================================================
+# FINAL COMMIT
+# =========================================================
+
+# Step 22: Stage resolved file
+git add story.txt
+
+# Step 23: Commit resolved merge conflict
+git commit -m "Resolved merge conflict"
+
+# =========================================================
+# VERIFY
+# =========================================================
+
+# Check status
+git status
+
+# View branches
+git branch
+
+# View commit history
+git log --oneline
+
+# =========================================================
+# IMPORTANT CONCEPTS
+# =========================================================
+
+# Merge conflict occurs when:
+# Same part of same file is modified differently
+# in two branches.
+
+# Git cannot decide automatically which change to keep.
+
+# Conflict markers:
+# <<<<<<<
+# =======
+# >>>>>>>
+
+# HEAD represents:
+# Current checked-out branch.
+
+# =========================================================
+# VS CODE CONFLICT OPTIONS
+# =========================================================
+
+# VS Code may show buttons like:
+
+# Accept Current Change
+# Accept Incoming Change
+# Accept Both Changes
+# Compare Changes
+
+# Accept Current:
+# Keeps current branch changes.
+
+# Accept Incoming:
+# Keeps merging branch changes.
+
+# Accept Both:
+# Keeps both changes.
+
+# Compare:
+# Shows side-by-side comparison.
