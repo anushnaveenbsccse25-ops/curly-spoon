@@ -1,16 +1,3 @@
-
-# =========================================================
-# GIT COMPLETE WORKFLOW USING VS CODE (WINDOWS)
-# =========================================================
-
-# ---------------------------------------------------------
-# INITIAL CONFIGURATION (Once on Local Machine)
-# ---------------------------------------------------------
-
-# Open VS Code
-# Open Terminal:
-# Terminal -> New Terminal
-
 # Set Git username
 git config --global user.name "Your Name"
 
